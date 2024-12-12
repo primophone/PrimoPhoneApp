@@ -3,28 +3,28 @@ import { Activity, CreditCard, DollarSign, Users } from "lucide-react";
 
 const stats = [
   {
-    title: "Total Revenue",
-    value: "$45,231.89",
+    title: "Total Vendas",
+    value: "R$30.000,00",
     icon: DollarSign,
-    description: "+20.1% from last month",
+    description: "+20.1% do mês passado",
   },
   {
-    title: "Active Users",
+    title: "Clientes",
     value: "2,350",
     icon: Users,
-    description: "+180 new users",
+    description: "+180 novos clientes",
   },
   {
-    title: "Active Subscriptions",
+    title: "Compras recentes",
     value: "1,200",
     icon: CreditCard,
-    description: "85% retention rate",
+    description: "85% Nivél de retenção",
   },
   {
-    title: "Active Sessions",
-    value: "450",
+    title: "Usuários novos",
+    value: "200",
     icon: Activity,
-    description: "Last 24 hours",
+    description: "nas últimas 24hrs",
   },
 ];
 
