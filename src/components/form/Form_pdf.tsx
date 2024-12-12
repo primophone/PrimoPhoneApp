@@ -264,68 +264,92 @@ export function ProductForm() {
         <div>
           <h3 className="text-lg font-semibold pb-4">Produtos</h3>
           {fields.map((field, index) => (
-            <div key={field.id} className="flex gap-4 pb-4">
-              <FormField
-                control={form.control}
-                name={`products.${index}.description`}
-                render={({ field }) => (
-                  <FormItem className="flex-1">
-                    <FormLabel>Descrição</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name={`products.${index}.warranty`}
-                render={({ field }) => (
-                  <FormItem className="flex-1">
-                    <FormLabel>Garantia</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name={`products.${index}.quantity`}
-                render={({ field }) => (
-                  <FormItem className="w-20">
-                    <FormLabel>Qtd</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="number"
-                        {...field}
-                        onChange={(e) => field.onChange(Number(e.target.value))}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name={`products.${index}.unitPrice`}
-                render={({ field }) => (
-                  <FormItem className="w-28">
-                    <FormLabel>Valor Unitário</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="number"
-                        {...field}
-                        onChange={(e) => field.onChange(Number(e.target.value))}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <div className="flex items-end justify-end">
+            <div
+              key={field.id}
+              className="grid grid-cols-2 md:grid-cols-6 gap-4 pb-4 items-end"
+            >
+              {/* Descrição */}
+              <div className="col-span-1 md:col-span-2">
+                <FormField
+                  control={form.control}
+                  name={`products.${index}.description`}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Descrição</FormLabel>
+                      <FormControl>
+                        <Input {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              {/* Quantidade */}
+              <div>
+                <FormField
+                  control={form.control}
+                  name={`products.${index}.quantity`}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Qtd</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="number"
+                          {...field}
+                          onChange={(e) =>
+                            field.onChange(Number(e.target.value))
+                          }
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              {/* Garantia */}
+              <div>
+                <FormField
+                  control={form.control}
+                  name={`products.${index}.warranty`}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Garantia</FormLabel>
+                      <FormControl>
+                        <Input {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              {/* Valor Unitário */}
+              <div>
+                <FormField
+                  control={form.control}
+                  name={`products.${index}.unitPrice`}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Valor Unitário</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="number"
+                          {...field}
+                          onChange={(e) =>
+                            field.onChange(Number(e.target.value))
+                          }
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              {/* Botão de Remoção */}
+              <div className="flex items-center justify-start md:justify-end">
                 <Button
                   variant="ghost"
                   type="button"
@@ -336,6 +360,8 @@ export function ProductForm() {
               </div>
             </div>
           ))}
+
+          {/* Botão para Adicionar Produto */}
           <Button
             className="text-green-600"
             variant="outline"
@@ -353,43 +379,56 @@ export function ProductForm() {
             <Plus className="w-6 h-6" />
           </Button>
         </div>
-
         {/* Seção de Pagamento */}
         <div>
           <h3 className="text-lg font-semibold pb-4">Formas de Pagamento</h3>
           {paymentFields.map((field, index) => (
-            <div key={field.id} className="flex gap-4 pb-4">
-              <FormField
-                control={form.control}
-                name={`payments.${index}.type`}
-                render={({ field }) => (
-                  <FormItem className="flex-1">
-                    <FormLabel>Tipo de Pagamento</FormLabel>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name={`payments.${index}.value`}
-                render={({ field }) => (
-                  <FormItem className="w-28">
-                    <FormLabel>Valor Pago</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="number"
-                        {...field}
-                        onChange={(e) => field.onChange(Number(e.target.value))}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <div className="flex items-end justify-end">
+            <div
+              key={field.id}
+              className="grid grid-cols-4 md:grid-cols-6 gap-4 pb-4 items-end"
+            >
+              {/* Tipo de Pagamento */}
+              <div className="col-span-2 md:col-span-3">
+                <FormField
+                  control={form.control}
+                  name={`payments.${index}.type`}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Tipo de Pagamento</FormLabel>
+                      <FormControl>
+                        <Input {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              {/* Valor Pago */}
+              <div className="col-span-1 md:col-span-2">
+                <FormField
+                  control={form.control}
+                  name={`payments.${index}.value`}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Valor Pago</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="number"
+                          {...field}
+                          onChange={(e) =>
+                            field.onChange(Number(e.target.value))
+                          }
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              {/* Botão de Remoção */}
+              <div className="flex items-center justify-start md:justify-end">
                 <Button
                   variant="ghost"
                   type="button"
@@ -400,6 +439,8 @@ export function ProductForm() {
               </div>
             </div>
           ))}
+
+          {/* Botão para Adicionar Pagamento */}
           <Button
             className="text-green-600"
             variant="outline"
